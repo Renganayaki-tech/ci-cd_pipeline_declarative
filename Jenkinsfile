@@ -9,22 +9,22 @@ pipeline{
             }
             stage('Install Dependencies'){
                 steps{
-                    sh 'pip install -r requirements.txt'
+                    bat 'pip install -r requirements.txt'
                 }
             }
             stage('Run Application'){
                 steps{
-                    sh 'python app.py'
+                    bat 'python app.py'
                 }
             }
             stage('Run Tests'){
                 steps{
-                    sh 'pytest'
+                    bat 'pytest'
                 }
             }
             stage('Generate Report'){
                 steps{
-                    sh '''
+                    bat '''
                     echo "Build Number: ${Build_NUmber}" > report.txt
                     echo "Build Status: SUCCESS" >> report.txt
                     '''
